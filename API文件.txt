@@ -1,0 +1,51 @@
+
+经过这一天的考试让我明白敲代码使我越来越快乐。没错  ，这是真话
+提前声明：
+		由于未知错误，我无法打开网页，并且不能够访问到我编写的部分界面，
+		未知因素，如果报错，概不负责。我充分相信自己的逻辑，如果有不同意见，
+		请和我聊一聊，谢谢。辛苦了，老师。
+
+		
+		
+- 用户Api
+
+    - 用户emain注册（邮箱验证）
+	api.add_resource(UserResource,'/register/')
+	
+	
+    - 用户登录（删除用户不可得登录） 	在登录时根据账户密码查询用户信息，
+	如果is_delete为True，进行提示，如果False就登录成功
+		- 验证码和密码登录（密码实现数据安全）
+		api.add_resource(LoginResource,'/login/')
+		
+		
+		
+    - 用户信息修改
+	我的逻辑：在用户修改信息之前，必须先要经过登录，如果没有登录，那么不能够进行用户修改
+	
+	api.add_resource(UpdateResource,'/updateinfo/')
+    - 用户逻辑删除
+	api.add_resource(DeleteResource,'/deleteinfo/')
+	
+	
+  - 博客Api
+    - 博客创建
+	api.add_resource(BlogcreateResource,'/createblog/')
+    - 博客修改
+	api.add_resource(UpdateBlogResource,'/updateblog/')
+	
+    - 博客删除
+	api.add_resource(DeleteResource,'/deleteblog/')
+
+  - 用户，博客结合操作
+    - 收藏博客
+	api.add_resource(CollectResource,'/collectblog/')
+	
+    - 获取某用户的所有收藏
+	api.add_resource(SearchallblogResource,'/searchblog/')
+
+    - 获取收藏某博客的所有用户
+	api.add_resource(CollectBlogforallUser,'/showbloguser/')
+
+
+
